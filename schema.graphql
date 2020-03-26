@@ -1,0 +1,92 @@
+# This file was generated based on ".graphqlconfig". Do not edit manually.
+
+schema {
+    query: Query
+    mutation: Mutation
+}
+
+type Address {
+    city: String!
+    geo: Geo!
+    street: String!
+    suite: String!
+    zipcode: String!
+}
+
+type Comment {
+    author: User!
+    body: String!
+    id: ID!
+    post: Post!
+}
+
+type Company {
+    bs: String!
+    catchPhrase: String!
+    name: String!
+}
+
+type Geo {
+    lat: Float!
+    lng: Float!
+}
+
+type Mutation {
+    addComment(data: CommentInput!): Comment!
+    addPost(data: PostInput!): Post!
+    deleteComment(commentId: ID!): Comment!
+    deletePost(postId: ID!): Post!
+    updateComment(commentId: ID!, data: CommentUpdateInput!): Comment!
+    updatePost(data: PostUpdateInput!, postId: ID!): Post!
+}
+
+type Post {
+    author: User!
+    body: String!
+    comments: [Comment!]!
+    id: ID!
+    title: String!
+}
+
+type Query {
+    comment(commentId: ID!): Comment!
+    comments: [Comment!]
+    post(postId: ID!): Post!
+    posts: [Post!]
+    user(userId: Int!): User!
+    users: [User!]
+}
+
+type User {
+    address: Address
+    company: Company!
+    email: String!
+    id: ID!
+    name: String!
+    phone: String!
+    posts: [Post!]!
+    username: String!
+    website: String!
+}
+
+input CommentInput {
+    body: String!
+    postId: Int!
+    userId: Int!
+}
+
+input CommentUpdateInput {
+    body: String
+}
+
+input PostInput {
+    body: String!
+    title: String!
+    userId: Int!
+}
+
+input PostUpdateInput {
+    body: String
+    title: String
+    userId: Int
+}

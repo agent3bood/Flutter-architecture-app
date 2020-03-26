@@ -1,0 +1,12 @@
+{
+  "name": "architecture",
+  "schemaPath": "schema.graphql",
+  "extensions": {
+    "endpoints": {
+      "Default": {
+        "url": "https://api.graphqlplaceholder.com",
+        "introspect": true
+      }
+    }
+  }
+}
